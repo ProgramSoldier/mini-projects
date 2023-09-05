@@ -1,15 +1,38 @@
+
+import pygame
+
 class Piece():
-    def __init__(self, x: int, y: int) -> None:
-        self.x = x
-        self.y = y
+    active = False
+    def __init__(self, img, color):
+        self.img = img
+        self.color = color
 
     def move(self):
         raise AssertionError('The method is not defined')
 
+    def draw_move(self):
+        raise AssertionError('The method is not defined')
 
+    def draw(self, screen, x, y):
+        screen.blit(self.img, (x*64, y*64))
+
+
+class Empty(Piece):
+
+    def __init__(self):
+        pass
+
+    def move(self):
+        pass
+    def draw(self, screen, x, y):
+        pass
 class Pawn(Piece):
+
     def move(self):
         print('The method is defined')
+
+    def draw_move(self):
+        pass
 
 
 class Rook(Piece):
